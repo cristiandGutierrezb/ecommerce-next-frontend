@@ -9,16 +9,21 @@ export const Header = () => {
     <header className="w-full h-20 flex justify-center items-center shadow-md">
       <nav className="w-full max-w-screen-xl flex mx-auto justify-between items-center">
         <div>
-          <Image 
-            src="/coffee.svg" 
-            width='30' 
-            height='30' 
-            alt='Icono empresarial del cafe'
-          />
+          <Link href='/'>
+            <Image 
+              className="cursor-pointer"
+              src="/coffee.svg" 
+              width='30' 
+              height='30' 
+              alt='Icono empresarial del cafe'
+            />
+          </Link>
         </div>
         <ul className="flex gap-5">
           <Link href='/about' className="hover:text-blue-500 cursor-pointer transition-all">About</Link>
           <Link href='/questions' className="hover:text-blue-500 cursor-pointer transition-all">Preguntas frecuentes</Link>
+          <Link href='/login' className="hover:text-blue-500 cursor-pointer transition-all">Login</Link>
+          <Link href='/register' className="hover:text-blue-500 cursor-pointer transition-all">Register</Link>
         </ul>
         <div className="flex gap-4 justify-center items-center">
           <input
@@ -29,7 +34,7 @@ export const Header = () => {
           <div className="relative p-3 rounded shadow">
             <Image
               src='/shopping-cart.svg'
-              width='20' 
+              width='20'
               height='20' 
               alt='Icono de carrito de compras'
             />
