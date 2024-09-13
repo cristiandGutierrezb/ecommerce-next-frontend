@@ -4,7 +4,7 @@ import Link from "next/link"
 export function Card() {
   return (
     <article className="flex flex-col h-max rounded-sm border-slate-400 p-4">
-      <Link href='/details/asdf'>
+      <Link href='/details'>
         <Image
           className="rounded-md"
           src='/dolphin.webp'
