@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import './style.css'
 
+import { colorBgRed } from "@/components/tokens"
+
 export const metadata: Metadata = {
   title: 'Login',
   description: 'This component is for login on my app'
@@ -8,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <form>
+    <form className={`${colorBgRed}`}>
       <div>
         <label htmlFor="user">User</label>
         <input id="user" type="text" />

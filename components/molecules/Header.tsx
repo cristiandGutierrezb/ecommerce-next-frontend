@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { CopilotIcon } from "@primer/octicons-react"
 
 export const Header = () => {
   
@@ -10,20 +11,21 @@ export const Header = () => {
       <nav className="w-full max-w-screen-xl flex mx-auto justify-between items-center">
         <div>
           <Link href='/'>
-            <Image 
+            <CopilotIcon size={24} />
+            {/* <Image 
               className="cursor-pointer"
               src="/coffee.svg" 
               width='30' 
               height='30' 
               alt='Icono empresarial del cafe'
-            />
+            /> */}
           </Link>
         </div>
         <ul className="flex gap-5">
           <Link href='/about' className="hover:text-blue-500 cursor-pointer transition-all">About</Link>
           <Link href='/questions' className="hover:text-blue-500 cursor-pointer transition-all">Preguntas frecuentes</Link>
           <Link href='/login' className="hover:text-blue-500 cursor-pointer transition-all">Login</Link>
-          <Link href='/register' className="hover:text-blue-500 cursor-pointer transition-all">Register</Link>
+          <Link href='/asdffdsa' className="hover:text-blue-500 cursor-pointer transition-all">Register</Link>
         </ul>
         <div className="flex gap-4 justify-center items-center">
           <input

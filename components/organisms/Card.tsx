@@ -1,10 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export function Card() {
+import { colorBgRed } from "../tokens"
+
+type CardProps = {
+  idCard: string
+}
+
+export function Card({idCard}: CardProps) {
   return (
-    <article className="flex flex-col h-max rounded-sm border-slate-400 p-4">
-      <Link href='/details'>
+    <article className={`flex flex-col h-max rounded-sm border-slate-400 p-4 ${colorBgRed}`}>
+      <Link href={`/${idCard}`}>
         <Image
           className="rounded-md"
           src='/dolphin.webp'
