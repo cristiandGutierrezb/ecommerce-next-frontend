@@ -4,7 +4,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { CopilotIcon } from "@primer/octicons-react"
 
-export const Header = () => {
+type HeaderProps = {
+  quantity: number
+}
+
+export const Header = ({ quantity }: HeaderProps) => {
   
   return (
     <header className="w-full h-20 flex justify-center items-center shadow-md">
@@ -41,7 +45,7 @@ export const Header = () => {
               alt='Icono de carrito de compras'
             />
             <span className="absolute top-0 right-0 rounded-full bg-black text-white p-1 h-4 w-4 text-[12px] flex justify-center items-center font-bold">
-              0
+              { quantity }
             </span>
           </div>
         </div>
