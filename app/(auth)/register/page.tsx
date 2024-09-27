@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
-import './style.css'
+
+import { bgPrimary, bgSecondary, standardButton, standardForm, standardInput } from "@/components/tokens"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: 'Register',
@@ -8,29 +10,54 @@ export const metadata: Metadata = {
 
 export default function RegisterPage() {
   return (
-    <form>
-      <div>
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" />
+    <form className={`${standardForm} ${bgSecondary} w-1/2`}>
+      <div className="flex flex-col mb-7">
+        <input 
+          className={`${standardInput}`}
+          id="name"
+          type="text"
+          placeholder="Fullname"
+        />
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="text" />
+      <div className="flex flex-col mb-7">
+        <input 
+          className={`${standardInput}`}
+          id="email" 
+          type="email" 
+          placeholder="Email"
+        />
       </div>
-      <div>
-        <label htmlFor="user">User</label>
-        <input id="user" type="text" />
+      <div className="flex flex-col mb-7">
+        <input 
+          className={`${standardInput}`}
+          id="user" 
+          type="text" 
+          placeholder="User"
+        />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" />
+      <div className="flex flex-col mb-7">
+        <input
+          className={`${standardInput}`} 
+          id="password" 
+          type="password"
+          placeholder="Password" 
+        />  
       </div>
-      <div>
-        <label htmlFor="confirm-password">Confirm Password</label>
-        <input id="confirm-password" type="password" />
+      <div className="flex flex-col mb-7">
+        <input 
+          className={`${standardInput}`}
+          id="confirm-password" 
+          type="password"
+          placeholder="Confirm Password"
+        />
       </div>
-      <div>
-        <input type="submit" value="Login" />
+      <div className="w-full flex justify-center items-center">
+        <button className={`${standardButton} ${bgPrimary} transition-all hover:font-bold`} type="submit">
+          Register
+        </button>
+      </div>
+      <div className="text-center text-sm mt-5 text-white">
+        ¿Ya tienes cuenta? <Link className="font-bold" href='/login'>Inicia sesión aquì</Link>
       </div>
     </form>
   )

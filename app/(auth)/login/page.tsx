@@ -1,7 +1,13 @@
 import type { Metadata } from "next"
-import './style.css'
+import Link from "next/link"
 
-import { colorBgRed } from "@/components/tokens"
+import { 
+  standardForm, 
+  bgSecondary, 
+  standardInput, 
+  standardButton, 
+  bgPrimary
+} from "@/components/tokens"
 
 export const metadata: Metadata = {
   title: 'Login',
@@ -10,17 +16,30 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <form className={`${colorBgRed}`}>
-      <div>
-        <label htmlFor="user">User</label>
-        <input id="user" type="text" />
+    <form className={`${standardForm} ${bgSecondary} w-1/2`}>
+      <div className="flex flex-col">
+        <input 
+          className={`${standardInput}`} 
+          id="user" 
+          type="text" 
+          placeholder="User"
+        />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" />
+      <div className="flex flex-col my-7">
+        <input 
+          className={`${standardInput}`} 
+          id="password" 
+          type="password"
+          placeholder="Password" 
+        />
       </div>
-      <div>
-        <input type="submit" value="Login" />
+      <div className="w-full flex justify-center items-center">
+        <button className={`${standardButton} ${bgPrimary} transition-all hover:font-bold`} type="submit">
+          Login
+        </button>
+      </div>
+      <div className="text-center text-sm mt-5 text-white">
+        ¿Aún no tienes cuenta? <Link className="font-bold" href='/register'>Registrate aquì</Link>
       </div>
     </form>
   )

@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { CopilotIcon } from "@primer/octicons-react"
 
+import { bgPrimary } from "../tokens"
+
 type HeaderProps = {
   quantity: number
 }
@@ -11,18 +13,11 @@ type HeaderProps = {
 export const Header = ({ quantity }: HeaderProps) => {
   
   return (
-    <header className="w-full h-20 flex justify-center items-center shadow-md">
+    <header className={`w-full h-20 flex justify-center items-center shadow-md ${bgPrimary}`}>
       <nav className="w-full max-w-screen-xl flex mx-auto justify-between items-center">
         <div>
           <Link href='/'>
             <CopilotIcon size={24} />
-            {/* <Image 
-              className="cursor-pointer"
-              src="/coffee.svg" 
-              width='30' 
-              height='30' 
-              alt='Icono empresarial del cafe'
-            /> */}
           </Link>
         </div>
         <ul className="flex gap-5">

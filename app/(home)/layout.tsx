@@ -1,5 +1,3 @@
-import { Header } from '@/components'
-
 
 export default function HomeLayout({
  children
@@ -8,7 +6,6 @@ export default function HomeLayout({
 }) {
   return (
     <div>
-      <Header />
       { children }
     </div>
   );
