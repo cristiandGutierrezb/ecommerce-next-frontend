@@ -2,6 +2,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { useForm, SubmitHandler } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 
 import { 
   standardForm, 
@@ -10,10 +11,11 @@ import {
   standardButton, 
   bgPrimary
 } from "@/components/tokens"
+import { loginSchema } from "@/validators/loginSchema"
 
 type Inputs = {
-  example: string
-  exampleRequired: string
+  user: string
+  password: string
 }
 
 export default function LoginPage() {
@@ -23,12 +25,17 @@ export default function LoginPage() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>()
+  } = useForm<Inputs>({
+    resolver: zodResolver(loginSchema)
+  })
+
+  console.log(watch('password'));
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data)
     const body = {
-      user: data.example,
-      pass: data.exampleRequired
+      user: data.user,
+      pass: data.password
     }
     // Service
   }
@@ -37,7 +44,7 @@ export default function LoginPage() {
     <form className={`${standardForm} ${bgSecondary} w-1/2`} onSubmit={handleSubmit(onSubmit)}>  
       <div className="flex flex-col">
         <input 
-          {...register("example")}
+          {...register("user")}
           className={`${standardInput}`} 
           id="user" 
           type="text" 
@@ -46,13 +53,14 @@ export default function LoginPage() {
       </div>
       <div className="flex flex-col my-7">
         <input 
-          {...register("exampleRequired", { required: true })}
+          {...register("password", { required: true })}
           className={`${standardInput}`} 
           id="password" 
           type="password"
           placeholder="Password" 
         />
       </div>
+      { errors.password ? (<span className="text-red-600">Error en variable</span>) : ('') }
       <div className="w-full flex justify-center items-center">
         {/* <button className={`${standardButton} ${bgPrimary} transition-all hover:font-bold`} type="submit">
           Login
