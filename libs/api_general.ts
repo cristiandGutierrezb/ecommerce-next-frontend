@@ -13,6 +13,9 @@ export const getAllProducts = async () => {
 export const getInfoUser = async (body: DtoUser) => {
   const info = await fetch(`${API}/user`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify(body)
   })
   const rawData = await info.json()

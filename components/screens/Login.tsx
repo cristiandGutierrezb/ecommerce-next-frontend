@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
@@ -21,6 +22,8 @@ type Inputs = {
 
 export default function Login() {
 
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
@@ -37,8 +40,8 @@ export default function Login() {
       password: data.password
     }
     getInfoUser(body)
-    .then((data) => {
-      console.log('Llegando', data);
+    .then((objUser) => {
+      router.replace(`/profile/${objUser.user}`)
     })
   }
   
@@ -53,8 +56,9 @@ export default function Login() {
           placeholder="User"
         />
       </div>
+      { errors.user && <span className="text-red-600">Error en variable</span> }
       <div className="flex flex-col my-7">
-        <input 
+        <input
           {...register("password", { required: true })}
           className={`${standardInput}`} 
           id="password" 
@@ -62,7 +66,7 @@ export default function Login() {
           placeholder="Password" 
         />
       </div>
-      { errors.password ? (<span className="text-red-600">Error en variable</span>) : ('') }
+      { errors.password && <span className="text-red-600">Error en variable</span> }
       <div className="w-full flex justify-center items-center">
         <button className={`${standardButton} ${bgPrimary} transition-all hover:font-bold`} type="submit">
           Login

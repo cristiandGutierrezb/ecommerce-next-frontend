@@ -3,6 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import { useShoppingCarStore } from "@/store/shoppingCar"
+
 import { bgPrimary } from "../tokens"
 
 type HeaderProps = {
@@ -12,6 +14,12 @@ type HeaderProps = {
 
 export const Header = ({ quantity, showSearch = true }: HeaderProps) => {
   
+  const items = useShoppingCarStore((state) => state.items)
+
+  const onShowProducts = () => {
+    console.log(items);
+  }
+
   return (
     <header className={`w-full h-20 flex justify-center items-center shadow-md ${bgPrimary}`}>
       <nav className="w-full max-w-screen-xl flex mx-auto justify-between items-center">
@@ -30,6 +38,9 @@ export const Header = ({ quantity, showSearch = true }: HeaderProps) => {
           <Link href='/questions' className="hover:text-blue-500 cursor-pointer transition-all">Preguntas frecuentes</Link>
           <Link href='/login' className="hover:text-blue-500 cursor-pointer transition-all">Login</Link>
           <Link href='/register' className="hover:text-blue-500 cursor-pointer transition-all">Register</Link>
+          <button onClick={onShowProducts}>
+            Show Products
+          </button>
         </ul>
         <div className="flex gap-4 justify-center items-center">
           {showSearch && (
