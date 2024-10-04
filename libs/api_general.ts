@@ -1,6 +1,6 @@
 import { DtoUser } from "@/types/api-general"
 
-const API = 'http://192.168.0.198:3000/api/v1'
+const API = 'http://localhost:3000/api/v1'
 
 export const getAllProducts = async () => {
   const info = await fetch(`${API}/products`)

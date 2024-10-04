@@ -64,10 +64,9 @@ export default function Login() {
       </div>
       { errors.password ? (<span className="text-red-600">Error en variable</span>) : ('') }
       <div className="w-full flex justify-center items-center">
-        {/* <button className={`${standardButton} ${bgPrimary} transition-all hover:font-bold`} type="submit">
+        <button className={`${standardButton} ${bgPrimary} transition-all hover:font-bold`} type="submit">
           Login
-        </button> */}
-        <input className={`${standardButton} ${bgPrimary} transition-all hover:font-bold`} type="submit" />
+        </button>
       </div>
       <div className="text-center text-sm mt-5 text-white">
         ¿Aún no tienes cuenta? <Link className="font-bold" href='/register'>Registrate aquì</Link>

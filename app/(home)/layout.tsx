@@ -1,3 +1,4 @@
+import { Header } from "@/components";
 
 export default function HomeLayout({
  children
@@ -6,6 +7,7 @@ export default function HomeLayout({
 }) {
   return (
     <div>
+      <Header quantity={0} showSearch={false} />
       { children }
     </div>
   );

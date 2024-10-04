@@ -1,6 +1,9 @@
 export const bgPrimary = 'bg-gradient-to-r from-[#DCD3C4] to-[#E6E4E0]'
 export const bgSecondary = 'bg-gradient-to-r from-[#0D0D0D] to-[#3F3D3C]'
 
+export const textPrimary = 'text-[#DFD7CB]'
+export const textSecondary = 'text-[#1F1E1E]'
+
 export const colorTextRed = 'text-red-400'
 export const colorBorderRed = 'border border-red-600'
 

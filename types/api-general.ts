@@ -7,7 +7,10 @@ export type Product = {
   state_id: number
 }
 
-export type DtoUser = {
+export interface DaoUser {
+  id: number
   user: string
   password: string
 }
+
+export type DtoUser = Omit<DaoUser, 'id'>
