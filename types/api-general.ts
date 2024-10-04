@@ -6,3 +6,8 @@ export type Product = {
   stock: number
   state_id: number
 }
+
+export type DtoUser = {
+  user: string
+  password: string
+}
