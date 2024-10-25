@@ -5,6 +5,7 @@ export interface DaoProduct {
   description: string
   stock: number
   state_id: number
+  quantity: number
 }
 
 export type DtoProduct = Omit<DaoProduct, 'id_product'>

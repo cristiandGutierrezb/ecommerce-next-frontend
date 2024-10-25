@@ -5,7 +5,8 @@ import Link from "next/link"
 
 import { useShoppingCarStore } from "@/store/shoppingCar"
 
-import { bgPrimary } from "../tokens"
+import { bgPrimary, stylesForCard } from "../tokens"
+import ListItemsCart from "./ListItemsCart"
 
 type HeaderProps = {
   quantity: number,
@@ -58,8 +59,11 @@ export const Header = ({ quantity, showSearch = true }: HeaderProps) => {
                   alt='Icono de carrito de compras'
                 />
                 <span className="absolute top-0 right-0 rounded-full bg-black text-white p-1 h-4 w-4 text-[12px] flex justify-center items-center font-bold">
-                  { quantity }
+                  { items.length }
                 </span>
+                <section className={`absolute top-[100%] w-[400px] right-0 ${stylesForCard} p-3 rounded-md`}>
+                  <ListItemsCart items={items} />
+                </section>
               </div>
             </>
           )}

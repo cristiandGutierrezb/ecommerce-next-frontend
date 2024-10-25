@@ -3,11 +3,10 @@ import Link from "next/link"
 
 import { useShoppingCarStore } from "@/store/shoppingCar"
 
-import { Product } from "@/types/api-general"
 import { DaoProduct } from "@/types/shoppingCar"
 
 type CardProps = {
-  product: Product
+  product: DaoProduct
   updateQuantity: () => void
 }
 

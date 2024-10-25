@@ -4,18 +4,18 @@ import { useEffect, useState } from 'react';
 import { Header, Card } from '@/components'
 import { getAllProducts } from '@/libs/api_general';
 
-import { Product } from '@/types/api-general';
 import Image from 'next/image';
 import { bgPrimary, bgSecondary, standardButton, textPrimary, textSecondary } from '@/components/tokens';
 import Link from 'next/link';
+import { DaoProduct } from '@/types/shoppingCar';
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([])
+  const [products, setProducts] = useState<DaoProduct[]>([])
   const [quantity, setQuantity] = useState(0)
 
   useEffect(() => {
     getAllProducts()
-    .then((data: Product[]) => {
+    .then((data: DaoProduct[]) => {
       setProducts(data)
     })
     .catch((e) => {
